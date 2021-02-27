@@ -93,7 +93,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo-negro-abstracto-moderno_1025-213.jpg"))); // NOI18N
+        panelateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/panellateralbackgroud.jpg"))); // NOI18N
         panelateral.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         userlateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user.png"))); // NOI18N
@@ -238,7 +238,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
         getContentPane().add(panelateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 610));
 
-        buttonclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button-close.png"))); // NOI18N
+        buttonclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/close-button.png"))); // NOI18N
         buttonclose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttoncloseMouseClicked(evt);
@@ -258,7 +258,7 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
         getContentPane().add(buttonclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 30, 30));
 
-        minimizarGen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button-minizar.png"))); // NOI18N
+        minimizarGen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/minimize-button.png"))); // NOI18N
         minimizarGen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizarGenMouseClicked(evt);
@@ -293,11 +293,11 @@ public class InterfazGeneral extends javax.swing.JFrame {
 
         getContentPane().add(PanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 830, 580));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/white-blue-gradient-linear-1920x1080-c2-ffffff-b0c4de-a-135-f-14.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/backgroud.jpg"))); // NOI18N
         fondo.setText("jLabel1");
         fondo.setMaximumSize(getPreferredSize());
         fondo.setPreferredSize(getMinimumSize());
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 610));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

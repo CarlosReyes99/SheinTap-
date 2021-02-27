@@ -46,7 +46,7 @@ public class BaseDatosCiclos {
             
             switch(caso){
                 case "Todos":
-                    consulta="select * from ciclos order by mescicloaño desc";
+                    consulta="select * from ciclos ";
                 break;
                 
                 

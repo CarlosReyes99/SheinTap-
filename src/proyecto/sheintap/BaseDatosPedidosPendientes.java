@@ -68,7 +68,7 @@ public class BaseDatosPedidosPendientes {
             Statement st=conexion.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             /*Dado a que siempre se requiere los mismos datos en cada posible consulta, la primera parte de la consulta se guarda en 
             la cadena "estandar" mientras que en la cadena "consulta" se almacena la condicion a seguir que diferencia a cada consulta*/
-            estandar="select * from pedidospendientes order by mescicloaño desc";
+            estandar="select * from pedidospendientes ";
             switch(busqueda){
                 case "numcel":
                    condicion="where numcel='"+dato+"'";

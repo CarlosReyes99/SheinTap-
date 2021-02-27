@@ -89,14 +89,17 @@ public class JpClientes extends javax.swing.JPanel {
         ButtonModificar1 = new org.edisoncor.gui.panel.PanelImage();
         labelModificar1 = new javax.swing.JLabel();
 
+        setForeground(new java.awt.Color(29, 29, 29));
         setEnabled(false);
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(646, 517));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPane2.setBackground(new java.awt.Color(29, 29, 29));
         jScrollPane2.setBorder(null);
         jScrollPane2.setOpaque(false);
 
+        TablaDatos.setForeground(new java.awt.Color(29, 29, 29));
         TablaDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -128,8 +131,9 @@ public class JpClientes extends javax.swing.JPanel {
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 54, 750, 204));
 
         jLabel1.setFont(new java.awt.Font("Microsoft JhengHei UI", 3, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Ciclos");
+        jLabel1.setText("Clientes");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 11, 152, 22));
         add(BarraBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 14, 142, -1));
 

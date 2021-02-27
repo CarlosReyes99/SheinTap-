@@ -221,6 +221,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelTitulo.setFont(new java.awt.Font("Microsoft YaHei UI", 3, 14)); // NOI18N
+        LabelTitulo.setForeground(new java.awt.Color(255, 255, 255));
         LabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelTitulo.setText("Pedidos pendientes");
         add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 170, -1));
@@ -381,10 +382,14 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 700, 140));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Total dinero: ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        labeltotal.setForeground(new java.awt.Color(255, 255, 255));
         add(labeltotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 70, 20));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ver por cliente: ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
@@ -403,12 +408,14 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         });
         add(buttonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cantidad de articulos: ");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
 
         labelcantart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(labelcantart, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 60, 10));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Ciclo");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 70, -1));
