@@ -16,7 +16,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
     int total, conteo, cantart;
     DefaultTableModel modelo;
     int seleccion;
-    String numcel, nom_art, talla, nociclo, precio, opc, color, nombre;
+    String numcel, nom_art, talla, nociclo, precio, color, nombre;
      
     int flagCombo;
     int flagCombo2;
@@ -55,10 +55,10 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         //Se crea un nuevo modelo de tabla
         modelo = new DefaultTableModel();
         //Se agregan las columnas
-        modelo.setColumnIdentifiers(new Object[]{"Nombre cliente","Numero celular","Nombre articulo","Color", "Talla", "MesCicloAño", "Precio", "Vendido"});
+        modelo.setColumnIdentifiers(new Object[]{"Nombre cliente","Numero celular","Nombre articulo","Color", "Talla", "Precio", "MesCicloAño"});
         //Se agregan las filas. 
         for(int x=0;x<consultapedidos[0].length;x++){
-            modelo.addRow(new Object[]{consultapedidos[7][x],consultapedidos[0][x],consultapedidos[1][x],consultapedidos[6][x],consultapedidos[2][x],consultapedidos[3][x],consultapedidos[4][x],consultapedidos[5][x]});
+            modelo.addRow(new Object[]{consultapedidos[6][x],consultapedidos[0][x],consultapedidos[1][x],consultapedidos[5][x],consultapedidos[2][x],consultapedidos[4][x],consultapedidos[3][x]});
         }
         //Se añade el nuevo modelo a la tabla
         TablaDatos.setModel(modelo);
@@ -572,17 +572,22 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         // TODO add your handling code here:
         ClaseDatosPedidos clasedatos= new ClaseDatosPedidos();
         seleccion= TablaDatos.rowAtPoint(evt.getPoint());
-        
+        nombre= String.valueOf(TablaDatos.getValueAt(seleccion, 0));
         numcel= String.valueOf(TablaDatos.getValueAt(seleccion, 1));
         nom_art= TablaDatos.getValueAt(seleccion, 2).toString();
-        nombre= String.valueOf(TablaDatos.getValueAt(seleccion, 0));
         talla= String.valueOf(TablaDatos.getValueAt(seleccion, 4));
         nociclo = String.valueOf(TablaDatos.getValueAt(seleccion, 5));
         precio= TablaDatos.getValueAt(seleccion, 6).toString();
-        opc=TablaDatos.getValueAt(seleccion, 7).toString();
+        
         color= TablaDatos.getValueAt(seleccion, 3).toString();
         
         clasedatos.setNombre(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        clasedatos.setNumcel(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        clasedatos.setNomart(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        clasedatos.setTalla(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        clasedatos.setMescicloaño(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        clasedatos.setPrecio(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        clasedatos.setColor(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
         
         
         

@@ -103,7 +103,7 @@ public class BaseDatosPedidosPendientes {
             //Obten el numero de fila en donde se encuentra rs
             fila =rs.getRow();
             //Agrega esa posicion a fila y esa será la dimension del arreglo.
-            empleado= new String[8][fila];
+            empleado= new String[7][fila];
             int i=0;
             //Regresa el rs a la posicion anterior a la primera
             rs.beforeFirst();
@@ -115,9 +115,8 @@ public class BaseDatosPedidosPendientes {
                 empleado[2][i]=rs.getString("talla");
                 empleado[3][i]=rs.getString("mescicloaño");
                 empleado[4][i]=rs.getString("precio");
-                empleado[5][i]=rs.getString("opc");
-                empleado[6][i]=rs.getString("color");
-                empleado[7][i]=rs.getString("nombrecliente");
+                empleado[5][i]=rs.getString("color");
+                empleado[6][i]=rs.getString("nombrecliente");
 
                 i++;
             }

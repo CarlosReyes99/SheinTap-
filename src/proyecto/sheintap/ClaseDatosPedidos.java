@@ -55,7 +55,7 @@ public class ClaseDatosPedidos {
     //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
-        System.out.print("Insertaste en clase de atributos el"+nombre);
+        
     }
     public void setNumcel(String numcel) {
         this.numcel = numcel;
