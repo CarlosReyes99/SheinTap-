@@ -570,6 +570,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
 
     private void TablaDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaDatosMouseClicked
         // TODO add your handling code here:
+        ClaseDatosPedidos clasedatos= new ClaseDatosPedidos();
         seleccion= TablaDatos.rowAtPoint(evt.getPoint());
         
         numcel= String.valueOf(TablaDatos.getValueAt(seleccion, 1));
@@ -580,6 +581,9 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         precio= TablaDatos.getValueAt(seleccion, 6).toString();
         opc=TablaDatos.getValueAt(seleccion, 7).toString();
         color= TablaDatos.getValueAt(seleccion, 3).toString();
+        
+        clasedatos.setNombre(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        
         
         
         
