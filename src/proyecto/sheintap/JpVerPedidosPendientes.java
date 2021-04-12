@@ -1,18 +1,6 @@
 package proyecto.sheintap;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.Font;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -165,29 +153,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         generar.recibirDatos(nombre, numcel, nociclo);
         File pdfNewFile = new File(nombrepdf);
         generar.createPDF(pdfNewFile);
-        
-        
-        
-            
-            
-            
-            
-        }
-        
-
-        
-        
-        
-        
-        
-        
-                
-            
-            
-        
-        
-     
-            
+        }  
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -197,25 +163,27 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         Encontrados = new javax.swing.JLabel();
         buttonvertodos = new org.edisoncor.gui.panel.PanelImage();
         labelVertodos = new javax.swing.JLabel();
-        buttoneliminarpuesto = new org.edisoncor.gui.panel.PanelImage();
-        jLabelEliminar = new javax.swing.JLabel();
+        buttoneliminarpedido = new org.edisoncor.gui.panel.PanelImage();
+        jLabelEliminarPedido = new javax.swing.JLabel();
         buttoningresarpuesto = new org.edisoncor.gui.panel.PanelImage();
         jLabelGenerarpdf = new javax.swing.JLabel();
         buttonmodificarpuesto = new org.edisoncor.gui.panel.PanelImage();
         jLabelModificar = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaDatos = new rojerusan.RSTableMetro();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelTotaldinero = new javax.swing.JLabel();
         labeltotal = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelVerporclientes = new javax.swing.JLabel();
         comboboxClientes = new javax.swing.JComboBox<>();
         buttonBuscar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelCantidadarticulos = new javax.swing.JLabel();
         labelcantart = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         comboboxciclos = new javax.swing.JComboBox<>();
         comboboxCiclosTotal = new javax.swing.JComboBox<>();
         buttonAceptartotal = new javax.swing.JButton();
+        buttoneliminarpuesto1 = new org.edisoncor.gui.panel.PanelImage();
+        jLabelEliminarart = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -225,6 +193,9 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         LabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelTitulo.setText("Pedidos pendientes");
         add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 170, -1));
+
+        Encontrados.setBackground(new java.awt.Color(255, 255, 255));
+        Encontrados.setForeground(new java.awt.Color(255, 255, 255));
         add(Encontrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, 14, 14));
 
         buttonvertodos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button.png"))); // NOI18N
@@ -260,38 +231,40 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
 
         add(buttonvertodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 280, 140, 40));
 
-        buttoneliminarpuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button.png"))); // NOI18N
-        buttoneliminarpuesto.addMouseListener(new java.awt.event.MouseAdapter() {
+        buttoneliminarpedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button.png"))); // NOI18N
+        buttoneliminarpedido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttoneliminarpuestoMouseClicked(evt);
+                buttoneliminarpedidoMouseClicked(evt);
             }
         });
 
-        jLabelEliminar.setFont(new java.awt.Font("Microsoft YaHei UI", 3, 18)); // NOI18N
-        jLabelEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelEliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelEliminar.setText("Eliminar");
-        jLabelEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelEliminarPedido.setFont(new java.awt.Font("Microsoft YaHei UI", 3, 18)); // NOI18N
+        jLabelEliminarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEliminarPedido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelEliminarPedido.setText("Eliminar Pedido");
+        jLabelEliminarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelEliminarMouseClicked(evt);
+                jLabelEliminarPedidoMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout buttoneliminarpuestoLayout = new javax.swing.GroupLayout(buttoneliminarpuesto);
-        buttoneliminarpuesto.setLayout(buttoneliminarpuestoLayout);
-        buttoneliminarpuestoLayout.setHorizontalGroup(
-            buttoneliminarpuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttoneliminarpuestoLayout.createSequentialGroup()
+        javax.swing.GroupLayout buttoneliminarpedidoLayout = new javax.swing.GroupLayout(buttoneliminarpedido);
+        buttoneliminarpedido.setLayout(buttoneliminarpedidoLayout);
+        buttoneliminarpedidoLayout.setHorizontalGroup(
+            buttoneliminarpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttoneliminarpedidoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabelEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        buttoneliminarpuestoLayout.setVerticalGroup(
-            buttoneliminarpuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        buttoneliminarpedidoLayout.setVerticalGroup(
+            buttoneliminarpedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttoneliminarpedidoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(buttoneliminarpuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 140, 40));
+        add(buttoneliminarpedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, 140, 40));
 
         buttoningresarpuesto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button.png"))); // NOI18N
         buttoningresarpuesto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -382,16 +355,16 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 700, 140));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Total dinero: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        jLabelTotaldinero.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTotaldinero.setText("Total dinero: ");
+        add(jLabelTotaldinero, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         labeltotal.setForeground(new java.awt.Color(255, 255, 255));
         add(labeltotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 70, 20));
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ver por cliente: ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+        jLabelVerporclientes.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelVerporclientes.setText("Ver por cliente: ");
+        add(jLabelVerporclientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
         comboboxClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -408,10 +381,11 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         });
         add(buttonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Cantidad de articulos: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
+        jLabelCantidadarticulos.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCantidadarticulos.setText("Cantidad de articulos: ");
+        add(jLabelCantidadarticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
 
+        labelcantart.setForeground(new java.awt.Color(255, 255, 255));
         labelcantart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(labelcantart, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 60, 10));
 
@@ -432,6 +406,39 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
             }
         });
         add(buttonAceptartotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 90, -1));
+
+        buttoneliminarpuesto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button.png"))); // NOI18N
+        buttoneliminarpuesto1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttoneliminarpuesto1MouseClicked(evt);
+            }
+        });
+
+        jLabelEliminarart.setFont(new java.awt.Font("Microsoft YaHei UI", 3, 18)); // NOI18N
+        jLabelEliminarart.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEliminarart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelEliminarart.setText("Eliminar art");
+        jLabelEliminarart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelEliminarartMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout buttoneliminarpuesto1Layout = new javax.swing.GroupLayout(buttoneliminarpuesto1);
+        buttoneliminarpuesto1.setLayout(buttoneliminarpuesto1Layout);
+        buttoneliminarpuesto1Layout.setHorizontalGroup(
+            buttoneliminarpuesto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttoneliminarpuesto1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelEliminarart, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        buttoneliminarpuesto1Layout.setVerticalGroup(
+            buttoneliminarpuesto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelEliminarart, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        add(buttoneliminarpuesto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 140, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonvertodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonvertodosMouseClicked
@@ -440,9 +447,9 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         verTodos();
     }//GEN-LAST:event_buttonvertodosMouseClicked
 
-    private void buttoneliminarpuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttoneliminarpuestoMouseClicked
+    private void buttoneliminarpedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttoneliminarpedidoMouseClicked
         
-    }//GEN-LAST:event_buttoneliminarpuestoMouseClicked
+    }//GEN-LAST:event_buttoneliminarpedidoMouseClicked
 
     private void buttoningresarpuestoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttoningresarpuestoMouseClicked
         
@@ -458,8 +465,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
     }//GEN-LAST:event_labelVertodosMouseClicked
 
     private void jLabelModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelModificarMouseClicked
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+       
         //Obtener de la fila el ID de la fila seleccionada. 
         int fila = TablaDatos.getSelectedRow(); //Guaradr el numero de fila seleccionada.
         //Si no se ha seleccionado ninguna fila, el metodo devuelve "-1";
@@ -468,17 +474,17 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         if(fila!=-1){
             
             //Guardar el id del empleado seleccionado.
-            
+             Modificar_pedidosDialog modificarpd =new Modificar_pedidosDialog(new javax.swing.JFrame(), true);
+             modificarpd.recibirdatos(numcel, nociclo,nom_art, talla, color, precio);
+             modificarpd.setLocationRelativeTo(null);
+             modificarpd.setVisible(true);
+             verTodos();
              
              System.out.print(numcel);
 
             //Obtener los datos de ese empleado mediante una consulta por ID.    
             
-            Modificar_pedidosDialog dialogmodificar;
-            dialogmodificar = new Modificar_pedidosDialog(new javax.swing.JFrame(), true);
-            dialogmodificar.recibirdatos(numcel, nom_art, talla, nociclo, precio, opc, color, nombre);
-            dialogmodificar.setLocationRelativeTo(null);
-            dialogmodificar.setVisible(true);
+           
             total();
             verTodos();
         }else{
@@ -486,7 +492,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jLabelModificarMouseClicked
 
-    private void jLabelEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarMouseClicked
+    private void jLabelEliminarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarPedidoMouseClicked
         // TODO add your handling code here:
         //Obtener la fila seleccionada. 
         int fila = TablaDatos.getSelectedRow();
@@ -495,26 +501,36 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         {
             //Obtener y guardar el id de la fila seleccionada.
             
-            
-            
             //La ventana de confirmación retorna un valor numerico equivalente a la opcion que selecciona el usuario. 
             int op=JOptionPane.showConfirmDialog(null, "Está a punto de eliminar permanentemente el pedido '"+numcel+"'", "Confirmar eliminacion", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
             //Si confirma la eliminación, el valor de op=0
             if(op==0){
-                
-                
-                p.eliminarPedido(numcel, nom_art, precio, color);
+
+                p.eliminarPedido("eliminarpedido",numcel, nom_art, precio, color, nociclo);
                 total= total - Integer.parseInt(precio);
-                verTodos();
                 labeltotal.setText(String.valueOf(total));
                 
             }else{
                 //Sí cancela la eliminacion no pasa nada
             }
+            
         }else{
             JOptionPane.showMessageDialog(null,"Selecciona a un puesto y presiona 'Eliminar'" ,"Eliminacion de puestos",JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jLabelEliminarMouseClicked
+        total=0;
+            nombre= comboboxClientes.getSelectedItem().toString();
+            nociclo= comboboxciclos.getSelectedItem().toString();
+            consultapedidos= p.buscarPedido("nombreciclo",nombre , nociclo); //lama al método de buscar pedido
+         
+            for (String consultapedido : consultapedidos[4]) {
+                total = total + Integer.parseInt(consultapedido);
+            }
+            labeltotal.setText(String.valueOf(total));
+            System.out.print(total);
+        
+            verPorCliente();
+        
+    }//GEN-LAST:event_jLabelEliminarPedidoMouseClicked
 
     private void jLabelGenerarpdfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGenerarpdfMouseClicked
        //llama a dialog de ciclo  
@@ -523,13 +539,10 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
                     //seleccionamos el dato 1 de la fila y lo pasamos a numcel
                     
                     generarPdf(nombre, numcel, nociclo);
-                    
-               
-                
-                
             }else {
                 JOptionPane.showMessageDialog(null,"Selecciona a un cliente con su numero de ciclo y presiona 'Generar pdf'" ,"Generar pdf",JOptionPane.ERROR_MESSAGE);
             }
+            
     }//GEN-LAST:event_jLabelGenerarpdfMouseClicked
 
     private void comboboxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxClientesActionPerformed
@@ -586,11 +599,47 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         }
         labeltotal.setText(String.valueOf(total));
         System.out.print(total);
-        verPorCiclo();
-       
-        
-        
+        verPorCiclo();  
     }//GEN-LAST:event_buttonAceptartotalMouseClicked
+
+    private void buttoneliminarpuesto1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttoneliminarpuesto1MouseClicked
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_buttoneliminarpuesto1MouseClicked
+
+    private void jLabelEliminarartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelEliminarartMouseClicked
+        // TODO add your handling code here:
+         //Obtener la fila seleccionada. 
+        int fila = TablaDatos.getSelectedRow();
+        //Validar si hay alguna fila seleccionada
+        if(TablaDatos.getSelectedRow() != -1)
+        {
+            //Obtener y guardar el id de la fila seleccionada.
+            
+            
+            
+            //La ventana de confirmación retorna un valor numerico equivalente a la opcion que selecciona el usuario. 
+            int op=JOptionPane.showConfirmDialog(null, "Está a punto de eliminar permanentemente el pedido '"+numcel+"'", "Confirmar eliminacion", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+            //Si confirma la eliminación, el valor de op=0
+            if(op==0){
+                
+                
+                p.eliminarPedido("eliminarart",numcel, nom_art, precio, color, nociclo);
+                total= total - Integer.parseInt(precio);
+                verTodos();
+                labeltotal.setText(String.valueOf(total));
+                
+            }else{
+                //Sí cancela la eliminacion no pasa nada
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Selecciona a un puesto y presiona 'Eliminar'" ,"Eliminacion de puestos",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_jLabelEliminarartMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -599,20 +648,22 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
     private rojerusan.RSTableMetro TablaDatos;
     private javax.swing.JButton buttonAceptartotal;
     private javax.swing.JButton buttonBuscar;
-    private org.edisoncor.gui.panel.PanelImage buttoneliminarpuesto;
+    private org.edisoncor.gui.panel.PanelImage buttoneliminarpedido;
+    private org.edisoncor.gui.panel.PanelImage buttoneliminarpuesto1;
     private org.edisoncor.gui.panel.PanelImage buttoningresarpuesto;
     private org.edisoncor.gui.panel.PanelImage buttonmodificarpuesto;
     private org.edisoncor.gui.panel.PanelImage buttonvertodos;
     private javax.swing.JComboBox<String> comboboxCiclosTotal;
     private javax.swing.JComboBox<String> comboboxClientes;
     private javax.swing.JComboBox<String> comboboxciclos;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabelEliminar;
+    private javax.swing.JLabel jLabelCantidadarticulos;
+    private javax.swing.JLabel jLabelEliminarPedido;
+    private javax.swing.JLabel jLabelEliminarart;
     private javax.swing.JLabel jLabelGenerarpdf;
     private javax.swing.JLabel jLabelModificar;
+    private javax.swing.JLabel jLabelTotaldinero;
+    private javax.swing.JLabel jLabelVerporclientes;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelVertodos;
     private javax.swing.JLabel labelcantart;

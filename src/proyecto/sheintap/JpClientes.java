@@ -335,6 +335,7 @@ public class JpClientes extends javax.swing.JPanel {
         Registar_clientesDialog dialogclientes =new Registar_clientesDialog(new javax.swing.JFrame(), true);
         dialogclientes.setLocationRelativeTo(null);
         dialogclientes.setVisible(true);
+        verTodos();
     }//GEN-LAST:event_ButtonRegistrarMouseClicked
 
     private void ButtonModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonModificarMouseClicked

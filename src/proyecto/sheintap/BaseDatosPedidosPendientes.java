@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
 public class BaseDatosPedidosPendientes {
     Connection conexion;
     int valida;
-    String nomartv, tallav, nociclov, preciov, numcelv;
+    String nomartv, tallav, preciov, numcelv;
     
-    public void recibirdatosviejos(String numcel, String nomart, String talla, String nociclo, String precio){
+    public void recibirdatosviejos(String numcel, String nomart, String talla,  String precio){
     this.nomartv= nomart;
     this.tallav= talla;
-    this.nociclov= nociclo;
+ 
     this.preciov= precio;
     this.numcelv= numcel;
     System.out.print("\n \n \n este es el numcel que se inserta en modificar pedido: "+numcelv);
@@ -133,23 +133,41 @@ public class BaseDatosPedidosPendientes {
     
     
     //Eliminar cliente
-    public void eliminarPedido(String numcel, String nomart, String precio, String color){
+    public void eliminarPedido(String busqueda, String numcel, String nomart, String precio, String color, String nociclo){
         try{
+            int x;
+            
+            
             Statement st=conexion.createStatement();
-            int x=st.executeUpdate("delete from pedidospendientes where numcel='"+numcel+"' and nomart='"+nomart+"' and precio='"+precio+"' and color='"+color+"' ");
-            if(x==1){
-               JOptionPane.showMessageDialog(null,"Pedido eliminado con exito","Eliminación de pedido",JOptionPane.INFORMATION_MESSAGE);
-            }      
+            
+            switch(busqueda){
+            
+                case "eliminarart":
+                    x=st.executeUpdate("delete from pedidospendientes where numcel='"+numcel+"' and nomart='"+nomart+"' and precio='"+precio+"' and color='"+color+"' and mescicloaño='"+nociclo+"'");
+                    if(x==1){
+                    JOptionPane.showMessageDialog(null,"Pedido eliminado con exito","Eliminación de pedido",JOptionPane.INFORMATION_MESSAGE);
+                    }  
+                    break;
+                case "eliminarpedido":
+                      x=st.executeUpdate("delete from pedidospendientes where numcel='"+numcel+"' and mescicloaño='"+nociclo+"' ");
+                    if(x==1){
+                    JOptionPane.showMessageDialog(null,"Pedido eliminado con exito","Eliminación de pedido",JOptionPane.INFORMATION_MESSAGE);
+                    }  
+                    break;
+            
+            }
+            
+                
         }catch(HeadlessException | SQLException e){
            JOptionPane.showMessageDialog(null," "+e.getMessage(),"Eliminación de pedido",JOptionPane.ERROR_MESSAGE); 
         }
     }
    
     //Actualizar cliente
-    public void actualizarPedido(String numcel,String nom_art,String talla,String nociclo, String precio, String opc){
+    public void actualizarPedido(String numcel, String mescicloaño, String nom_art,String talla, String precio){
         try{
             Statement st=conexion.createStatement();
-            int x=st.executeUpdate("UPDATE public.pedidospendientes SET nomart='"+nom_art+"', talla='"+talla+"', precio='"+precio+"', opc='"+opc+"' WHERE numcel='"+numcelv+"' and mescicloaño='"+nociclov+"' and nomart='"+nomartv+"' and talla='"+tallav+"'; ");
+            int x=st.executeUpdate("UPDATE public.pedidospendientes SET nomart='"+nom_art+"', talla='"+talla+"', precio='"+precio+"' WHERE numcel='"+numcelv+"' and mescicloaño='"+mescicloaño+"' and nomart='"+nomartv+"' and talla='"+tallav+"' and talla='"+tallav+"' and precio='"+preciov+"'; ");
             if(x==1){
                JOptionPane.showMessageDialog(null,"Pedido actualizado con exito","Modificacion de Pedido",JOptionPane.INFORMATION_MESSAGE);
             }

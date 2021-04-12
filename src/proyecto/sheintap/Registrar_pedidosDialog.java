@@ -122,7 +122,7 @@ public class Registrar_pedidosDialog extends javax.swing.JDialog {
 
         jLabel9.setText("Nombre");
 
-        comboboxTalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EXTRACHICA", "CHICA", "MEDIANA", "GRANDE", "EXTRAGRANDE", "ÚNICO", "0XL", "1XL", "2XL", "3XL", "4XL" }));
+        comboboxTalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "XS", "S", "M", "L", "XL", "ÚNICO", "0XL", "1XL", "2XL", "3XL", "4XL" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -1,9 +1,7 @@
 package proyecto.sheintap;
 
-import com.itextpdf.text.Anchor;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chapter;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -11,15 +9,10 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.List;
-import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Section;
-import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.draw.DottedLineSeparator;
+
 import java.io.*; 
 import javax.swing.JOptionPane;
 
@@ -140,10 +133,11 @@ public class GeneratePDFFileIText {
                 //se agrega numero de piezas y total
                 
                 // Creamos una tabla
-                PdfPTable tabla = new PdfPTable(3);
+                PdfPTable tabla = new PdfPTable(4);
                 tabla.addCell("Nombre articulo");
                 tabla.addCell("Color");
                 tabla.addCell("Precio");
+                tabla.addCell("Talla");
                 
                 
                 consultapedidos =p.buscarPedido("nombreciclo",nombre, nociclo);
@@ -152,6 +146,7 @@ public class GeneratePDFFileIText {
                 tabla.addCell(consultapedidos[1][x]);
                 tabla.addCell(consultapedidos[6][x]);
                 tabla.addCell(consultapedidos[4][x]);
+                tabla.addCell(consultapedidos[2][x]);
             }
         
             // Añadimos la tabla al documento
