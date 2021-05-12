@@ -6,16 +6,16 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class JpVerPedidosPendientes extends javax.swing.JPanel {
-    
+    ClaseDatosPedidos clasedatos= new ClaseDatosPedidos();
     BaseDatosPedidosPendientes p;
     BaseDatosClientes b;
     BaseDatosCiclos c;
     String consultapedidos[][]; //Arreglo que se encarga de guardar consultas.
     String clientes[][];
     String[][] ciclos;
-    int total, conteo, cantart;
+    int total, conteo, cantart, seleccion;
     DefaultTableModel modelo;
-    int seleccion;
+   
     String numcel, nom_art, talla, nociclo, precio, color, nombre;
      
     int flagCombo;
@@ -31,22 +31,45 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         verTodos();
         
         InsertarCombobox();
-        total();
+        total("mescicloaño");
         
     }
     
     
     
 
-    public void total(){
-        nociclo= comboboxCiclosTotal.getSelectedItem().toString();
-         consultapedidos= p.buscarPedido("mescicloaño",nociclo , ""); //lama al método de buscar pedido
+    private void total(String tipo){
+        
+        
+        switch(tipo){
+            case "mescicloaño":
+                nociclo= comboboxCiclosTotal.getSelectedItem().toString();
+                consultapedidos= p.buscarPedido("mescicloaño",nociclo, ""); //lama al método de buscar pedido
          
-        for (String consultapedido : consultapedidos[4]) {
-            total = total + Integer.parseInt(consultapedido);
+                for (String consultapedido : consultapedidos[4]) {
+                    total = total + Integer.parseInt(consultapedido);
+                }
+                labeltotal.setText(String.valueOf(total));
+                System.out.print(total);
+                break;
+                
+            case "porcliente":
+                nombre= comboboxClientes.getSelectedItem().toString();
+                nociclo= comboboxciclos.getSelectedItem().toString();
+                consultapedidos= p.buscarPedido("nombreciclo", nombre, nociclo);
+               
+         
+                for (String consultapedido : consultapedidos[4]) {
+                    total = total + Integer.parseInt(consultapedido);
+                }
+                labeltotal.setText(String.valueOf(total));
+                System.out.print(total);
+                
+                
+                break;
+        
         }
-        labeltotal.setText(String.valueOf(total));
-        System.out.print(total);
+        
         
         
     }
@@ -77,10 +100,10 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         //Se crea un nuevo modelo de tabla
         modelo = new DefaultTableModel();
         //Se agregan las columnas
-        modelo.setColumnIdentifiers(new Object[]{"Nombre cliente","Numero celular","Nombre articulo","Color", "Talla", "MesCicloAño", "Precio", "Vendido"});
+        modelo.setColumnIdentifiers(new Object[]{"Nombre cliente","Numero celular","Nombre articulo","Color", "Talla", "MesCicloAño", "Precio"});
         //Se agregan las filas. 
         for(int x=0;x<consultapedidos[0].length;x++){
-            modelo.addRow(new Object[]{consultapedidos[7][x],consultapedidos[0][x],consultapedidos[1][x],consultapedidos[6][x],consultapedidos[2][x],consultapedidos[3][x],consultapedidos[4][x],consultapedidos[5][x]});
+            modelo.addRow(new Object[]{consultapedidos[6][x],consultapedidos[0][x],consultapedidos[1][x],consultapedidos[5][x],consultapedidos[2][x],consultapedidos[4][x],consultapedidos[3][x]});
         }
         //Se añade el nuevo modelo a la tabla
         TablaDatos.setModel(modelo);
@@ -91,11 +114,14 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
     public void verPorCliente(){
         nombre= comboboxClientes.getSelectedItem().toString();
         nociclo= comboboxciclos.getSelectedItem().toString();
-        consultapedidos= p.buscarPedido("numcelciclo", nombre, nociclo);
+        consultapedidos= p.buscarPedido("nombreciclo", nombre, nociclo);
         generarTablaporcliente();
+        
         conteo= TablaDatos.getRowCount();
         labelcantart.setText(String.valueOf(conteo));
         System.out.print(conteo);
+        
+        total("porcliente");
       
     }
     
@@ -149,8 +175,8 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
     
     public void generarPdf(String nombre, String numcel, String nociclo){
         GeneratePDFFileIText generar= new GeneratePDFFileIText();
-        String nombrepdf= nombre+numcel+nociclo+".pdf";
-        generar.recibirDatos(nombre, numcel, nociclo);
+        String nombrepdf= clasedatos.getNombre()+clasedatos.getNumcel()+clasedatos.getMescicloaño()+".pdf";
+        generar.recibirDatos(clasedatos.getNombre(), clasedatos.getNumcel(), clasedatos.getMescicloaño());
         File pdfNewFile = new File(nombrepdf);
         generar.createPDF(pdfNewFile);
         }  
@@ -475,7 +501,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
             
             //Guardar el id del empleado seleccionado.
              Modificar_pedidosDialog modificarpd =new Modificar_pedidosDialog(new javax.swing.JFrame(), true);
-             modificarpd.recibirdatos(numcel, nociclo,nom_art, talla, color, precio);
+             
              modificarpd.setLocationRelativeTo(null);
              modificarpd.setVisible(true);
              verTodos();
@@ -485,7 +511,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
             //Obtener los datos de ese empleado mediante una consulta por ID.    
             
            
-            total();
+            total("mescicloaño");
             verTodos();
         }else{
             JOptionPane.showMessageDialog(null,"Selecciona a un empleado y presiona 'Modificar Empleado'","Busqueda de empleados",JOptionPane.ERROR_MESSAGE);
@@ -502,11 +528,11 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
             //Obtener y guardar el id de la fila seleccionada.
             
             //La ventana de confirmación retorna un valor numerico equivalente a la opcion que selecciona el usuario. 
-            int op=JOptionPane.showConfirmDialog(null, "Está a punto de eliminar permanentemente el pedido '"+numcel+"'", "Confirmar eliminacion", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int op=JOptionPane.showConfirmDialog(null, "Está a punto de eliminar permanentemente el pedido '"+clasedatos.getNumcel()+"'", "Confirmar eliminacion", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
             //Si confirma la eliminación, el valor de op=0
             if(op==0){
 
-                p.eliminarPedido("eliminarpedido",numcel, nom_art, precio, color, nociclo);
+                p.eliminarPedido("eliminarpedido",clasedatos.getNumcel(),clasedatos.getNomart(), clasedatos.getPrecio(), clasedatos.getColor(), clasedatos.getMescicloaño());
                 total= total - Integer.parseInt(precio);
                 labeltotal.setText(String.valueOf(total));
                 
@@ -557,7 +583,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
         total=0;
         nombre= comboboxClientes.getSelectedItem().toString();
         nociclo= comboboxciclos.getSelectedItem().toString();
-        consultapedidos= p.buscarPedido("nombreciclo",nombre , nociclo); //lama al método de buscar pedido
+        consultapedidos= p.buscarPedido("nombreciclo", clasedatos.getNombre(), clasedatos.getMescicloaño()); //lama al método de buscar pedido
          
         for (String consultapedido : consultapedidos[4]) {
             total = total + Integer.parseInt(consultapedido);
@@ -570,31 +596,28 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
 
     private void TablaDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaDatosMouseClicked
         // TODO add your handling code here:
-        ClaseDatosPedidos clasedatos= new ClaseDatosPedidos();
-        seleccion= TablaDatos.rowAtPoint(evt.getPoint());
-        nombre= String.valueOf(TablaDatos.getValueAt(seleccion, 0));
-        numcel= String.valueOf(TablaDatos.getValueAt(seleccion, 1));
-        nom_art= TablaDatos.getValueAt(seleccion, 2).toString();
-        talla= String.valueOf(TablaDatos.getValueAt(seleccion, 4));
-        nociclo = String.valueOf(TablaDatos.getValueAt(seleccion, 5));
-        precio= TablaDatos.getValueAt(seleccion, 6).toString();
         
-        color= TablaDatos.getValueAt(seleccion, 3).toString();
+        seleccion= TablaDatos.rowAtPoint(evt.getPoint());
+        
         
         clasedatos.setNombre(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
-        clasedatos.setNumcel(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
-        clasedatos.setNomart(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
-        clasedatos.setTalla(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
-        clasedatos.setMescicloaño(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
-        clasedatos.setPrecio(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
-        clasedatos.setColor(String.valueOf(TablaDatos.getValueAt(seleccion, 0)));
+        clasedatos.setNumcel(String.valueOf(TablaDatos.getValueAt(seleccion, 1)));
+       
+        
+        clasedatos.setNomart(String.valueOf(TablaDatos.getValueAt(seleccion, 2)));
+        clasedatos.setColor(String.valueOf(TablaDatos.getValueAt(seleccion, 3)));
+        clasedatos.setTalla(String.valueOf(TablaDatos.getValueAt(seleccion, 4)));
+        clasedatos.setPrecio(String.valueOf(TablaDatos.getValueAt(seleccion, 5)));
+        clasedatos.setMescicloaño(String.valueOf(TablaDatos.getValueAt(seleccion, 6)));
         
         
         
         
         
         
-        System.out.print("Nombre es:"+nombre+ "Numcel es: "+numcel+"Nociclo es: "+ nociclo);
+        
+        
+        
     }//GEN-LAST:event_TablaDatosMouseClicked
 
     private void buttonAceptartotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAceptartotalMouseClicked
@@ -630,13 +653,13 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
             
             
             //La ventana de confirmación retorna un valor numerico equivalente a la opcion que selecciona el usuario. 
-            int op=JOptionPane.showConfirmDialog(null, "Está a punto de eliminar permanentemente el pedido '"+numcel+"'", "Confirmar eliminacion", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int op=JOptionPane.showConfirmDialog(null, "Está a punto de eliminar permanentemente el articulo '"+clasedatos.getNomart()+"'", "Confirmar eliminacion", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
             //Si confirma la eliminación, el valor de op=0
             if(op==0){
                 
                 
-                p.eliminarPedido("eliminarart",numcel, nom_art, precio, color, nociclo);
-                total= total - Integer.parseInt(precio);
+                p.eliminarPedido("eliminarart",clasedatos.getNumcel(), clasedatos.getNomart(), clasedatos.getPrecio(), clasedatos.getColor(), clasedatos.getMescicloaño());
+                total= total - Integer.parseInt(clasedatos.getPrecio());
                 verTodos();
                 labeltotal.setText(String.valueOf(total));
                 

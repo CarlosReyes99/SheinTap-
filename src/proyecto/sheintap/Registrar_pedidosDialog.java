@@ -233,7 +233,7 @@ public class Registrar_pedidosDialog extends javax.swing.JDialog {
             //Verifica en qué estado está el pedido
             if("Incompleto".equals(opc)){
                 System.out.print(nociclo);
-                a.insertarPedido(numcel, nom_art, talla, nociclo, precio, opc, color, nombre);
+                a.insertarPedido(numcel, nom_art, talla, nociclo, precio, color, nombre);
                 
                 textfieldNombreart.setText("");
                 

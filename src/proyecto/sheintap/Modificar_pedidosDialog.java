@@ -12,6 +12,7 @@ package proyecto.sheintap;
  */
 public class Modificar_pedidosDialog extends javax.swing.JDialog {
 String numcel, nombreart, talla, color, precio, ciclo;
+ClaseDatosPedidos clasedatos= new ClaseDatosPedidos();
 BaseDatosPedidosPendientes pp;
     /** Creates new form Modificar_pedidosDialog
      * @param parent */
@@ -19,8 +20,14 @@ BaseDatosPedidosPendientes pp;
         super(parent, modal);
         initComponents();
         pp= new BaseDatosPedidosPendientes();
+        textfieldNombreart.setText(clasedatos.getNomart());
+        textfieldTalla.setText(clasedatos.getTalla());
+        textfieldColor.setText(clasedatos.getColor());
+        textfieldPrecio.setText(clasedatos.getPrecio());
+        labelnombre.setText(clasedatos.getNombre());
+        labelnociclo.setText(clasedatos.getMescicloaño());
     }
-
+    
     public void recibirdatos(String number, String cicle, String nameart, String size, String colorart, String price){
         this.numcel= number;
         this.nombreart= nameart;
@@ -28,12 +35,12 @@ BaseDatosPedidosPendientes pp;
         this.color= colorart;
         this.precio= price;
         
-        textfieldNombreart.setText(nombreart);
-        textfieldTalla.setText(talla);
-        textfieldColor.setText(color);
-        textfieldPrecio.setText(precio);
-        labelnombre.setText(numcel);
-        labelnociclo.setText(cicle);
+        textfieldNombreart.setText(clasedatos.getNomart());
+        textfieldTalla.setText(clasedatos.getTalla());
+        textfieldColor.setText(clasedatos.getColor());
+        textfieldPrecio.setText(clasedatos.getPrecio());
+        labelnombre.setText(clasedatos.getNombre());
+        labelnociclo.setText(clasedatos.getMescicloaño());
     }
    
     @SuppressWarnings("unchecked")
@@ -140,8 +147,8 @@ BaseDatosPedidosPendientes pp;
         // TODO add your handling code here:
         
        pp.recibirdatosviejos(numcel, nombreart, talla,precio);
-        System.out.print("El nombre del articulo es: "+ textfieldNombreart.getText()+ "\n"+"La talla del articulo es: "+ textfieldTalla.getText()+ "\n"+"El color del articulo es: "+ textfieldColor.getText()+ "\n"+"El precio del articulo es: "+ textfieldPrecio.getText()+ "\n");
-        pp.actualizarPedido(numcel, ciclo, textfieldNombreart.getText(), textfieldTalla.getText(), textfieldPrecio.getText());
+        //System.out.print("El nombre del articulo es: "+ textfieldNombreart.getText()+ "\n"+"La talla del articulo es: "+ textfieldTalla.getText()+ "\n"+"El color del articulo es: "+ textfieldColor.getText()+ "\n"+"El precio del articulo es: "+ textfieldPrecio.getText()+ "\n");
+        pp.actualizarPedido(clasedatos.getNumcel(), clasedatos.getMescicloaño(), textfieldNombreart.getText(), textfieldTalla.getText(), textfieldPrecio.getText());
         
     }//GEN-LAST:event_labelnombreMouseClicked
 
@@ -161,15 +168,11 @@ BaseDatosPedidosPendientes pp;
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Modificar_pedidosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Modificar_pedidosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Modificar_pedidosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Modificar_pedidosDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+    //</editor-fold>
+    
         //</editor-fold>
 
         /* Create and display the dialog */

@@ -11,7 +11,7 @@ public class BaseDatosPedidosPendientes {
     Connection conexion;
     int valida;
     String nomartv, tallav, preciov, numcelv;
-    
+    ClaseDatosPedidos clasedatos= new ClaseDatosPedidos();
     public void recibirdatosviejos(String numcel, String nomart, String talla,  String precio){
     this.nomartv= nomart;
     this.tallav= talla;
@@ -41,11 +41,11 @@ public class BaseDatosPedidosPendientes {
         }
     }
     
-    //InsertarClientes
-    public void insertarPedido(String numcel,String nom_art,String talla, String mescicloaño, String precio, String opc, String color,String nombre){
+    //Insertarpedido
+    public void insertarPedido(String numcel,String nom_art,String talla, String mescicloaño, String precio, String color,String nombre){
         try{
             Statement st=conexion.createStatement();
-            boolean x= st.execute("INSERT INTO pedidospendientes(numcel, nomart, talla, mescicloaño, precio, opc, color, nombrecliente) VALUES ('"+numcel+"', '"+nom_art+"', '"+talla+"', '"+mescicloaño+"', '"+precio+"', '"+opc+"', '"+color+"', '"+nombre+"');");
+            boolean x= st.execute("INSERT INTO pedidospendientes(numcel, nomart, talla, mescicloaño, precio, color, nombrecliente) VALUES ('"+numcel+"', '"+nom_art+"', '"+talla+"', '"+mescicloaño+"', '"+precio+"', '"+color+"', '"+nombre+"');");
             if(x==false){
                JOptionPane.showMessageDialog(null,"Pedido registrado correctamente","Insersion de Pedido",JOptionPane.INFORMATION_MESSAGE);  
             }
@@ -131,7 +131,7 @@ public class BaseDatosPedidosPendientes {
     
     
     
-    //Eliminar cliente
+    //Eliminar pedido
     public void eliminarPedido(String busqueda, String numcel, String nomart, String precio, String color, String nociclo){
         try{
             int x;
@@ -162,11 +162,11 @@ public class BaseDatosPedidosPendientes {
         }
     }
    
-    //Actualizar cliente
+    //Actualizar pedido
     public void actualizarPedido(String numcel, String mescicloaño, String nom_art,String talla, String precio){
         try{
             Statement st=conexion.createStatement();
-            int x=st.executeUpdate("UPDATE public.pedidospendientes SET nomart='"+nom_art+"', talla='"+talla+"', precio='"+precio+"' WHERE numcel='"+numcelv+"' and mescicloaño='"+mescicloaño+"' and nomart='"+nomartv+"' and talla='"+tallav+"' and talla='"+tallav+"' and precio='"+preciov+"'; ");
+            int x=st.executeUpdate("UPDATE public.pedidospendientes SET nomart='"+nom_art+"', talla='"+talla+"', precio='"+precio+"' WHERE numcel='"+clasedatos.getNumcel()+"' and mescicloaño='"+clasedatos.getMescicloaño()+"' and nomart='"+clasedatos.getNomart()+"' and talla='"+tallav+"' and precio='"+clasedatos.getPrecio()+"'; ");
             if(x==1){
                JOptionPane.showMessageDialog(null,"Pedido actualizado con exito","Modificacion de Pedido",JOptionPane.INFORMATION_MESSAGE);
             }

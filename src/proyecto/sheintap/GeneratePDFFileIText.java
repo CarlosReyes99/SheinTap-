@@ -34,6 +34,7 @@ public class GeneratePDFFileIText {
     private static final Font blueFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);    
     private static final Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
     private static final String iTextExampleImage = "C:\\shein.png";
+    ClaseDatosPedidos clasedatos= new ClaseDatosPedidos();
     
     //Variables que se usan dentro del proyecto para generar correctamente el pdf
     public String nombre, numcel, nociclo; 
@@ -126,7 +127,7 @@ public class GeneratePDFFileIText {
 
                 //Se agrega nombre y número de teléfono+
                 documento.add((new Paragraph("Nombre del cliente: " +nombre+ "\n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
-                documento.add((new Paragraph("Numero de celular: " +numcel,FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
+                documento.add((new Paragraph("Numero de celular: " +clasedatos.getNumcel()+"\n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
                 documento.add((new Paragraph("Numero de Ciclo: " +nociclo+"\n \n \n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
                 documento.add((new Paragraph("Total a pagar: " +total+"\n ",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
                 documento.add((new Paragraph("Cantidad de artículos: " +conteo+"\n \n \n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
@@ -144,7 +145,7 @@ public class GeneratePDFFileIText {
         
             for(int x=0;x<consultapedidos[0].length;x++) {
                 tabla.addCell(consultapedidos[1][x]);
-                tabla.addCell(consultapedidos[6][x]);
+                tabla.addCell(consultapedidos[5][x]);
                 tabla.addCell(consultapedidos[4][x]);
                 tabla.addCell(consultapedidos[2][x]);
             }
