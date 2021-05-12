@@ -564,7 +564,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
                 
                     //seleccionamos el dato 1 de la fila y lo pasamos a numcel
                     
-                    generarPdf(nombre, numcel, nociclo);
+                    generarPdf(nombre, clasedatos.getNumcel(), nociclo);
             }else {
                 JOptionPane.showMessageDialog(null,"Selecciona a un cliente con su numero de ciclo y presiona 'Generar pdf'" ,"Generar pdf",JOptionPane.ERROR_MESSAGE);
             }

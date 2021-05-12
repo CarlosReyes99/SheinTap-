@@ -127,7 +127,7 @@ public class GeneratePDFFileIText {
 
                 //Se agrega nombre y número de teléfono+
                 documento.add((new Paragraph("Nombre del cliente: " +nombre+ "\n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
-                documento.add((new Paragraph("Numero de celular: " +clasedatos.getNumcel()+"\n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
+                documento.add((new Paragraph("Numero de celular: " +numcel+"\n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
                 documento.add((new Paragraph("Numero de Ciclo: " +nociclo+"\n \n \n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
                 documento.add((new Paragraph("Total a pagar: " +total+"\n ",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
                 documento.add((new Paragraph("Cantidad de artículos: " +conteo+"\n \n \n",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD))));
