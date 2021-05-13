@@ -120,24 +120,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textfieldNombreart">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textfieldTalla">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textfieldColor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField3"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfieldColorActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="textfieldPrecio">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField4"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelnociclo">
       <Properties>

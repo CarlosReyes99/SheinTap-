@@ -163,10 +163,11 @@ public class BaseDatosPedidosPendientes {
     }
    
     //Actualizar pedido
-    public void actualizarPedido(String numcel, String mescicloaño, String nom_art,String talla, String precio){
+    public void actualizarPedido(String numcel, String mescicloaño, String nom_art,String color, String talla, String precio){
         try{
             Statement st=conexion.createStatement();
-            int x=st.executeUpdate("UPDATE public.pedidospendientes SET nomart='"+nom_art+"', talla='"+talla+"', precio='"+precio+"' WHERE numcel='"+clasedatos.getNumcel()+"' and mescicloaño='"+clasedatos.getMescicloaño()+"' and nomart='"+clasedatos.getNomart()+"' and talla='"+tallav+"' and precio='"+clasedatos.getPrecio()+"'; ");
+            int x=st.executeUpdate("UPDATE pedidospendientes SET nomart='"+nom_art+"', talla='"+talla+"', precio='"+precio+"' WHERE numcel='"+ numcelv+"' and mescicloaño='"+mescicloaño+"' and nomart='"+nomartv+"' and talla='"+tallav+"' and precio='"+ preciov+"'; ");
+            System.out.print("UPDATE pedidospendientes SET nomart='"+nom_art+"', color='"+color+"', talla='"+talla+"', precio='"+precio+"' WHERE numcel='"+ numcelv+"' and mescicloaño='"+mescicloaño+"' and nomart='"+nomartv+"' and talla='"+tallav+"' and precio='"+ preciov+"'; ");
             if(x==1){
                JOptionPane.showMessageDialog(null,"Pedido actualizado con exito","Modificacion de Pedido",JOptionPane.INFORMATION_MESSAGE);
             }

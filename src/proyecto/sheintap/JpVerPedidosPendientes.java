@@ -501,7 +501,7 @@ public class JpVerPedidosPendientes extends javax.swing.JPanel {
             
             //Guardar el id del empleado seleccionado.
              Modificar_pedidosDialog modificarpd =new Modificar_pedidosDialog(new javax.swing.JFrame(), true);
-             
+             modificarpd.recibirdatos(clasedatos.getNumcel(), clasedatos.getMescicloaño(), clasedatos.getNomart(), clasedatos.getTalla(), clasedatos.getColor(), clasedatos.getPrecio());
              modificarpd.setLocationRelativeTo(null);
              modificarpd.setVisible(true);
              verTodos();

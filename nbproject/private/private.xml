@@ -4,10 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/E:/NetBeansProjects/SHEINTAP/src/proyecto/sheintap/Registrar_pedidosDialog.java</file>
-            <file>file:/E:/NetBeansProjects/SHEINTAP/src/proyecto/sheintap/ClaseDatosPedidos.java</file>
             <file>file:/E:/NetBeansProjects/SHEINTAP/src/proyecto/sheintap/JpVerPedidosPendientes.java</file>
+            <file>file:/E:/NetBeansProjects/SHEINTAP/src/proyecto/sheintap/Modificar_pedidosDialog.java</file>
             <file>file:/E:/NetBeansProjects/SHEINTAP/src/proyecto/sheintap/BaseDatosPedidosPendientes.java</file>
-            <file>file:/E:/NetBeansProjects/SHEINTAP/src/proyecto/sheintap/GeneratePDFFileIText.java</file>
         </group>
     </open-files>
 </project-private>

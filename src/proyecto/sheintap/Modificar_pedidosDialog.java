@@ -18,14 +18,14 @@ BaseDatosPedidosPendientes pp;
      * @param parent */
     public Modificar_pedidosDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
         initComponents();
+        
         pp= new BaseDatosPedidosPendientes();
-        textfieldNombreart.setText(clasedatos.getNomart());
-        textfieldTalla.setText(clasedatos.getTalla());
-        textfieldColor.setText(clasedatos.getColor());
-        textfieldPrecio.setText(clasedatos.getPrecio());
-        labelnombre.setText(clasedatos.getNombre());
-        labelnociclo.setText(clasedatos.getMescicloaño());
+        
+        System.out.print("Nombre de articulo: "+nombreart+ "\t talla "+ talla+ "\t Color:"+color+ "\t precio: "+precio+"\t Mescicloaño: "+ciclo);
+        
+        
     }
     
     public void recibirdatos(String number, String cicle, String nameart, String size, String colorart, String price){
@@ -34,13 +34,14 @@ BaseDatosPedidosPendientes pp;
         this.talla= size;
         this.color= colorart;
         this.precio= price;
+        this.ciclo = cicle;
         
-        textfieldNombreart.setText(clasedatos.getNomart());
-        textfieldTalla.setText(clasedatos.getTalla());
-        textfieldColor.setText(clasedatos.getColor());
-        textfieldPrecio.setText(clasedatos.getPrecio());
-        labelnombre.setText(clasedatos.getNombre());
-        labelnociclo.setText(clasedatos.getMescicloaño());
+        textfieldNombreart.setText(nombreart);
+        textfieldTalla.setText(talla);
+        textfieldColor.setText(color);
+        textfieldPrecio.setText(precio);
+        labelnociclo.setText(ciclo);
+        System.out.print("Nombre de articulo: "+nombreart+ "\t talla "+ talla+ "\t Color:"+color+ "\t precio: "+precio+"\t Mescicloaño: "+ciclo);
     }
    
     @SuppressWarnings("unchecked")
@@ -75,13 +76,11 @@ BaseDatosPedidosPendientes pp;
 
         labelprecio.setText("Precio artículo");
 
-        textfieldNombreart.setText("jTextField1");
-
-        textfieldTalla.setText("jTextField2");
-
-        textfieldColor.setText("jTextField3");
-
-        textfieldPrecio.setText("jTextField4");
+        textfieldColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldColorActionPerformed(evt);
+            }
+        });
 
         labelnociclo.setText("jLabel1");
 
@@ -148,9 +147,13 @@ BaseDatosPedidosPendientes pp;
         
        pp.recibirdatosviejos(numcel, nombreart, talla,precio);
         //System.out.print("El nombre del articulo es: "+ textfieldNombreart.getText()+ "\n"+"La talla del articulo es: "+ textfieldTalla.getText()+ "\n"+"El color del articulo es: "+ textfieldColor.getText()+ "\n"+"El precio del articulo es: "+ textfieldPrecio.getText()+ "\n");
-        pp.actualizarPedido(clasedatos.getNumcel(), clasedatos.getMescicloaño(), textfieldNombreart.getText(), textfieldTalla.getText(), textfieldPrecio.getText());
+        pp.actualizarPedido(clasedatos.getNumcel(), ciclo, textfieldNombreart.getText(), textfieldColor.getText(), textfieldTalla.getText(), textfieldPrecio.getText());
         
     }//GEN-LAST:event_labelnombreMouseClicked
+
+    private void textfieldColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldColorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldColorActionPerformed
 
     /**
      * @param args the command line arguments
